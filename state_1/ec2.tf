@@ -1,33 +1,46 @@
 provider "aws" {
-  region = "us-east-1"
+  region  = "us-east-1"
   profile = "psl_dev"
 }
 
-data "aws_ami" "latest_amazon_linux" {
-  most_recent = true
+data "template_file" "userdata" {
+  template = "${file("userdata.sh")}"
+}
 
-  filter {
-    name   = "name"
-    values = ["amzn-ami-hvm-*"]
+resource "aws_security_group" "aws_terraform_workshop" {
+  name        = "aws-terraform-workshop-sg"
+  description = "Allow HTTP and SSH access"
+  vpc_id      = "vpc-29ec2c52"
+
+  ingress {
+    from_port   = 5000
+    to_port     = 5000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
-  owners = ["amazon"]
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags {
+    Project = "aws-terraform-workshop"
+  }
 }
 
-data "template_file" "userdata" {
-  template = "${file("zeppelin_userdata.sh")}"
-}
-resource "aws_instance" "psl_workshop" {
-  ami = "${data.aws_ami.latest_amazon_linux.id}"
-  instance_type = ""
-  vpc_security_group_ids = [""] 
-  subnet_id = ""
-  key_name = ""
-  iam_instance_profile = ""
-  user_data = "${data.template_file.userdata.rendered}"
+resource "aws_instance" "aws_terraform_workshop" {
+  ami                    = "ami-0ff8a91507f77f867"
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = ["${aws_security_group.aws_terraform_workshop.id}"]
+  subnet_id              = "subnet-1b4e0534"
+  key_name               = "aws-terraform-workshop"
+  user_data              = "${data.template_file.userdata.rendered}"
 
   tags = {
-    "Name" = "Terraform Workshop",
-    "Contact" = "avallecillac"
+    "Name"    = "hello-from-be"
+    "Project" = "aws-terraform-workshop"
   }
 }
