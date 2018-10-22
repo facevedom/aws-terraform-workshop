@@ -14,3 +14,9 @@ pip install awscli
 aws configure
 ```
 - Clone this repository
+
+## State 1
+- An EC2 instance
+- A security group
+- User data
+- Local tfstate
