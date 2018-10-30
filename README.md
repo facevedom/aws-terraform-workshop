@@ -16,6 +16,8 @@ aws configure
 - Clone this repository
 - (Optional) install and use [Landscape](https://github.com/coinbase/terraform-landscape)
 
+![Infrastructure diagram](Infrastructure.png)
+
 ## State 1
 ### Features :bulb:
 - An EC2 instance
