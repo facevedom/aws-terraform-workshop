@@ -1,5 +1,5 @@
 provider "aws" {
-  region  = "${var.region}"
+  region  = "${var.region}"  # variables can be injected from files, too
   profile = "${var.profile}"
 }
 
@@ -27,9 +27,9 @@ resource "aws_security_group" "aws_terraform_workshop" {
   }
 
   egress {
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -43,7 +43,7 @@ data "aws_ami" "latest_amazon_linux" {
 
   filter {
     name   = "name"
-    values = ["amzn-ami-hvm-*"]
+    values = ["amzn-ami-hvm-*-gp2"]
   }
 
   owners = ["amazon"]
@@ -55,8 +55,8 @@ resource "aws_instance" "psl_workshop" {
   vpc_security_group_ids = ["${aws_security_group.aws_terraform_workshop.id}"]
   subnet_id              = "${var.subnet_id}"
   key_name               = "${var.key_name}"
-  iam_instance_profile   = "${var.iam_instance_profile}"
   user_data              = "${data.template_file.userdata.rendered}"
+  count                  = "${var.instances}"
 
   tags = {
     "Name"    = "hello-from-be"
