@@ -14,6 +14,7 @@ pip install awscli
 aws configure
 ```
 - Clone this repository
+- (Optional) install and use [Landscape](https://github.com/coinbase/terraform-landscape)
 
 ## State 1
 ### Features :bulb:
@@ -70,3 +71,4 @@ terraform plan -var-file=myvars.tfvars
 
 ### Concepts :pencil2:
 - Modules
+- _ifs_ (interpolation)
