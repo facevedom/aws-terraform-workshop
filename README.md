@@ -2,6 +2,8 @@
 
 Examples about Infrastructure as Code, using [Terraform](https://www.terraform.io/) and [AWS](https://aws.amazon.com/)
 
+Sample application: [Hello From](https://github.com/facevedom/hello-from)
+
 ## Getting Started
 ### Set up your local environment
 - [Install Terraform](https://www.terraform.io/intro/getting-started/install.html)
