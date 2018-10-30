@@ -21,7 +21,7 @@ aws configure
 - (Optional) install and use [Landscape](https://github.com/coinbase/terraform-landscape)
 
 ## State 1
-### Features :bulb:
+### Features
 - An EC2 instance
 - A security group
 - User data
@@ -37,7 +37,7 @@ aws configure
 - Destroy
 
 ## State 2
-### Features :bulb:
+### Features
 - Remote backend :grin:
 - Variables
 - Outputs
@@ -56,7 +56,7 @@ terraform plan -var 'vpc_id=vpc-64b5f70d' -var 'app_port=5000' -var 'instance_ty
 ```
 
 ## State 3
-### Features :bulb:
+### Features
 - A launch configuration
 - An autoscaling group
 - An ELB
@@ -70,7 +70,7 @@ This is the definitive infrastructure
 terraform plan -var-file=myvars.tfvars
 ```
 ## State 4
-### Features :bulb:
+### Features
 - "Environments"
 
 ### Concepts :pencil2:
