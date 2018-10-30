@@ -120,7 +120,7 @@ resource "aws_autoscaling_group" "asg" {
   tags = [
     {
       key                 = "Name"
-      value               = "aws-terraform-workshop"
+      value               = "aws-terraform-workshop-asg"
       propagate_at_launch = true
     },
   ]
