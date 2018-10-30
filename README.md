@@ -33,9 +33,6 @@ aws configure
 
 ## State 2
 ### Features :bulb:
-- An EC2 instance
-- A security group
-- User data
 - Remote backend :grin:
 - Variables
 - Outputs
@@ -51,4 +48,19 @@ terraform plan -var 'vpc_id=vpc-64b5f70d' -var 'app_port=5000' -var 'instance_ty
 
 ```
 terraform plan -var 'vpc_id=vpc-64b5f70d' -var 'app_port=5000' -var 'instance_type=t2.micro' -var 'subnet_id=subnet-966331ff' -var 'key_name=aws-terraform-workshop' -var 'instances=2'
+```
+
+## State 3
+### Features :bulb:
+- A launch configuration
+- An autoscaling group
+- An ELB
+
+This is the definitive infrastructure
+### Concepts :pencil2:
+- Variables file
+- Lists
+
+```
+terraform plan -var-file=myvars.tfvars
 ```

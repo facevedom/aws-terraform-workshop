@@ -1,3 +1,13 @@
+terraform {
+  backend "s3" {
+    profile = "psl_dev"
+    bucket  = "aws-terraform-workshop"
+    key     = "terraform.tfstate"
+    region  = "us-east-2"
+    encrypt = true
+  }
+}
+
 provider "aws" {
   region  = "${var.region}"  # variables can be injected from files, too
   profile = "${var.profile}"
