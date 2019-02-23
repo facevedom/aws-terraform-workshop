@@ -48,11 +48,11 @@ aws configure
 
 
 ```
-terraform plan -var 'vpc_id=vpc-64b5f70d' -var 'app_port=5000' -var 'instance_type=t2.micro' -var 'subnet_id=subnet-966331ff' -var 'key_name=aws-terraform-workshop'
+terraform plan -var 'vpc_id=vpc-953f78ee' -var 'app_port=5000' -var 'instance_type=t2.micro' -var 'subnet_id=subnet-b1455dec' -var 'key_name=aws-terraform-workshop'
 ```
 
 ```
-terraform plan -var 'vpc_id=vpc-64b5f70d' -var 'app_port=5000' -var 'instance_type=t2.micro' -var 'subnet_id=subnet-966331ff' -var 'key_name=aws-terraform-workshop' -var 'instances=2'
+terraform plan -var 'vpc_id=vpc-953f78ee' -var 'app_port=5000' -var 'instance_type=t2.micro' -var 'subnet_id=subnet-b1455dec' -var 'key_name=aws-terraform-workshop' -var 'instances=2'
 ```
 
 ## State 3

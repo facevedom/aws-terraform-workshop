@@ -3,7 +3,7 @@ terraform {
     profile = "psl_dev"
     bucket  = "aws-terraform-workshop"
     key     = "prod-terraform.tfstate"
-    region  = "us-east-2"
+    region  = "us-east-1"
     encrypt = true
   }
 }
